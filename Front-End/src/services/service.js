@@ -3,7 +3,7 @@
 //Método GET
 export const getProducts = async () => {  //Declaramos una función asíncrona llamada getBicycles que nos permite hacer la petición a la API
     try {  //Usamos try para manejar errores
-      const response = await fetch('http://localhost:3000/Products'); //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
+      const response = await fetch('http://localhost:8080/api/v1/products'); //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
       const data = await response.json(); //Usamos el método json() para convertir la respuesta en un objeto JSON y lo almacenamos en la constante data 
       return data //Retornamos la constante data que contiene los datos de las bicicletas
     } catch (error) { //Usamos catch para manejar errores y mostramos un mensaje de error en la consola
@@ -12,7 +12,7 @@ export const getProducts = async () => {  //Declaramos una función asíncrona l
   };
 //Método DELETE
 export const deleteProduct= async (id) => {  //Definimos una función asíncrona llamada deleteBicycle que recibe un parámetro id que representa el ID de la bicicleta que queremos eliminar
-    const response = await fetch(`http://localhost:3000/Products/${id}`, { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
+    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`, { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
       method: 'DELETE'//Especificamos que esta es una solicitud de tipo DELETE
     });
 };
@@ -20,7 +20,7 @@ export const deleteProduct= async (id) => {  //Definimos una función asíncrona
 //Método POST
 export const addProduct = async (data) => { //Definimos una función asíncrona llamada addBicycle que recibe un parámetro data que representa los datos de la bicicleta que queremos añadir
   try {
-      const response = await fetch('http://localhost:3000/Products', { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
+      const response = await fetch('http://localhost:8080/api/v1/products', { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
           method: 'POST', //Especificamos que esta es una solicitud de tipo POST 
           headers: { //Especificamos el tipo de contenido que estamos enviando en la solicitud
               'Content-Type': 'application/json'//Especificamos que estamos enviando un objeto JSON 
@@ -41,7 +41,7 @@ export const addProduct = async (data) => { //Definimos una función asíncrona 
 //get para introducir datos en el formulario de editar
 export const getItemById = async (id) => { //Definimos una función asíncrona llamada getItemById que recibe un parámetro id que representa el ID de la bicicleta que queremos obtener
   try {
-    const response = await fetch(`http://localhost:3000/bicycles/${id}`);
+    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`);
     const data = await response.json();
     return data
   } catch (error) {
@@ -51,7 +51,7 @@ export const getItemById = async (id) => { //Definimos una función asíncrona l
 //Método PUT
 export const updateItem = async (id, newData) => { //Definimos una función asíncrona llamada updateItem que recibe dos parámetros: id que representa el ID de la bicicleta que queremos actualizar y newData que representa los nuevos datos de la bicicleta
   try {
-    const response = await fetch(`http://localhost:3000/Products/${id}`, {
+    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`, {
       method: 'PUT',//Especificamos que esta es una solicitud de tipo PUT
       headers: {
         'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ export const updateItem = async (id, newData) => { //Definimos una función así
 //Método GET
 export const getOneProduct = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/Products/${id}`);
+    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`);
     const data = await response.json();
     return data
   } catch (error) {

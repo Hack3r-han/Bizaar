@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import { addProduct } from '../../services/service';
 
@@ -16,16 +17,14 @@ body {
   }
 
   form {
-    font-family: 'Jost', sans-serif;
+    font-family: "Montserrat", sans-serif;
     max-width: 450px;
     min-width: 300px;
     margin: 0 auto;
     margin-top: 3%;
     margin-bottom: 3%;
     padding: 2%;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   }
   
   label {
@@ -41,7 +40,7 @@ body {
     padding: 3%;
     margin-bottom: 5%;
     border: none;
-    background-color: #D9D9D9;
+    background-color: #f2f2f2;
     border-radius: 5px;
     box-sizing: border-box;
   }
@@ -100,11 +99,36 @@ body {
     width: 50%;
     height: 50%;
   }
-  
-  input[type="submit"] {
-    background-color: #3de161d2;
-    margin-top: 1%;
+
+  textarea {
+    background-color: #f2f2f2; /* Gris claro */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 8px; /* Espaciado interno */
+    width: 100%; /* Ancho completo */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
   }
+  
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+}
+
+.btn{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;    
+    color: #F8FAE5;
+    background-color: #398183;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 120px;
+}
 `;
 
 const NewItem = () => {  // Añade el hook useNavigate a la importación de react-router-dom y declara una constante navigate que almacena el hook useNavigate
@@ -115,7 +139,7 @@ const NewItem = () => {  // Añade el hook useNavigate a la importación de reac
 
         if (success) {  // Si success es true
             // Mostrar mensaje de éxito
-            alert('¡La bicicleta fue añadida correctamente!');
+            alert('¡El producto fue añadido correctamente!');
             // Reiniciar el formulario
             reset();
         } else {
@@ -127,48 +151,48 @@ const NewItem = () => {  // Añade el hook useNavigate a la importación de reac
     return (
         <StyledNewItem>
         <form onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="form-title">Vende tu producto</h2>
             <div>
-                <label>Modelo</label>
-                <input className='model' type="text" {...register('model', {
+                <input className='model' type="text" placeholder="Titulo de tu producto, Ej: Cuadro"{...register('name', {
                     required: true,
                 })}/>
-                {errors.model?.type === 'required' && <p className="error-message">El campo modelo es requerido</p>}
+                {errors.model?.type === 'required' && <p className="error-message">El campo producto es requerido</p>}
             </div>
             <div>
-                <label>Velocidades</label>
-                <input className='speeding' type="text" {...register('speeds', {
+                <input className='speeding' type="text" placeholder="Precio"{...register('price', {
                     pattern: /^[0-9]{1,3}$/,
                     required: true,
                 })}/>
-                {errors.speeds?.type === 'pattern' && <p className="error-message">La velocidad debe ser un valor numérico</p>}
-                {errors.speeds?.type === 'required' && <p className="error-message">El campo velocidades es requerido</p>}
+                {errors.speeds?.type === 'pattern' && <p className="error-message">Le precio debe ser un valor numérico</p>}
+                {errors.speeds?.type === 'required' && <p className="error-message">El campo precios es requerido</p>}
             </div>
             <div className='cuadred'>
                 <div className='frame'>
-                    <label>Cuadro</label>
-                    <select {...register('frame')}>
-                        <option value="Aluminio">Aluminio</option>
-                        <option value="Acero">Acero</option>
-                        <option value="Plástico">Plástico</option>
-                        <option value="Carbono">Carbono</option>
-                        <option value="Otros">Otros</option>
+                    <label>Estado:</label>
+                    <select {...register('status')}>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Usado">Usado</option>
+                        <option value="Sin usar">Sin usar</option>
+                        <option value="Deteriorado">Deteriorado</option>
                     </select>
-                </div>
-                <div className='electric'>
-                    <label>Eléctrica</label>
-                    <input className="checkbox-css" type="checkbox" {...register('electric')} />
                 </div>
             </div>
             <div>
-                <label htmlFor="imageUpload">Img URL</label>
-                <input className="bicyclesimg" type="text" {...register('image', {
+                <input placeholder="Url de tu imagen" className="bicyclesimg" type="text" {...register('image', {
                 pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
                 required:true,
                 })}/>
                 {errors.image?.type === 'pattern' && <p className="error-message">El formato de la url de la imagen es incorrecto</p>}
                 {errors.image?.type === 'required' && <p className="error-message">El campo url de la imagen es requerido</p>}
             </div>
-            <input type="submit" value="Añadir" />
+            <label>Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50" {...register('description')}></textarea>
+            <div className="buttons-container">
+             <button  className="btn" type="submit" value="Añadir">Añadir</button>
+             <Link to="/">
+             <button className="btn">Cancelar</button>
+             </Link>
+             </div>
        </form>
         </StyledNewItem>
     );

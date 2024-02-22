@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Gallery1 from '../../assets/img/Gallery1.png';
@@ -39,8 +38,8 @@ const Gallery = () => { // Cambiado "props" por "id" para que coincida con el no
     <>
       {/* Cambiado "Gallery" por "GalleryContainer" */}
       <GalleryContainer className='gallerygrid'>
-        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo de una chica apoyada sobre una bicicleta azul"/>
-        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo de una chica apoyada sobre una bicicleta azul"/>
+        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo"/>
+        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo "/>
       </GalleryContainer>
     </>
   );
