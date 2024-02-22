@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-const ReadBicycles = () => {
-  const [bicycles, setBicycles] = useState([]); // Inicializa el estado con un array vacío
+const ReadProducts = () => {
+  const [products, setproducts] = useState([]); // Inicializa el estado con un array vacío
 
   useEffect(() => { // Utiliza el hook useEffect para realizar una solicitud GET al montar el componente
     const fetchData = async () => { // Define una función asincrónica llamada fetchData
       const response = await fetch('db.json'); // Realiza la solicitud GET al archivo db.json
       const data = await response.json(); // Convierte la respuesta en formato JSON
-      setBicycles(data.bicycles); // Actualiza el estado con los datos obtenidos
+      setBicycles(data.products); // Actualiza el estado con los datos obtenidos
     };
 
     fetchData(); // Llama a la función fetchData cuando el componente se monta
@@ -16,11 +16,11 @@ const ReadBicycles = () => {
 
   return ( // Renderiza el componente
     <div> 
-      <h2>Bicycles List</h2>
+      <h2>Listado de productos</h2>
       <ul>
-        {bicycles.map(bicycle => ( // Mapea el array de bicicletas y renderiza un elemento <li> por cada una /* Utiliza el ID de la bicicleta como clave 
-          <li key={bicycle.id}>  
-            {bicycle.model} -Speeds: {bicycle.speeds} - Frame: {bicycle.frame} - Electric: {bicycle.electric.toString()}  
+        {products.map(product => ( // Mapea el array de bicicletas y renderiza un elemento <li> por cada una /* Utiliza el ID de la bicicleta como clave 
+          <li key={product.id}>  
+            {product.model} -Speeds: {product.speeds} - Frame: {product.frame} - Electric: {product.electric.toString()}  
           </li>
         ))}
       </ul>
@@ -28,13 +28,13 @@ const ReadBicycles = () => {
   );
 };
 
-export default ReadBicycles; // Exporta el componente ReadBicycles para poder utilizarlo en otros archivos
+export default ReadProducts; // Exporta el componente Readproducts para poder utilizarlo en otros archivos
 
 // import React, { useState } from 'react';
 
 // //MÉTODO DELETE CON REACT 
-// // Definimos nuestro componente funcional Bicycle que acepta un ID como prop
-// const Bicycle = ({ id }) => {
+// // Definimos nuestro componente funcional product que acepta un ID como prop
+// const product = ({ id }) => {
 //   // Creamos un estado local llamado 'deleted' para controlar si la bicicleta ha sido eliminada
 //   const [deleted, setDeleted] = useState(false);
 
