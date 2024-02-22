@@ -7,12 +7,12 @@
       "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
       "description": "sfgfiugf",
       "id": "1"
-    },    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
+    },
+    {
+      "model": "asa",
+      "speeds": "12",
+      "frame": "Plástico",
       "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
       "id": "2"
     },
     {
@@ -23,6 +23,5 @@
       "description": "sfgfiugf",
       "id": "2"
     }
-
   ]
 }
