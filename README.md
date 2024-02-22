@@ -25,5 +25,10 @@ conformado por:
 
 ## Repositorio en Github:
 
+[Repositorio Github](https://github.com/GitNinja0/Hackathon_Proyect)
+
 ## Instalación:
+
+Entra en el repositorio, asegurate de clonarlo en tu carpeta de preferencias. 
+Al abrir tu Editor de codigo de fuente, ejecuta en tu terminal el comando 'npm intall'.
 
