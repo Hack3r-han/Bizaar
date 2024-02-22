@@ -124,7 +124,7 @@ const Edit = () => { //Edit es un componente funcional
       setValue('status', ProductData.status) // Utiliza el método setValue para actualizar el valor del campo frame con el valor de ProductData.frame
       setValue('description', ProductData.description) // Utiliza el método setValue para actualizar el valor del campo electric con el valor de ProductData.electric
       setValue('image', ProductData.image)
-      setValue('id', ProductData.id) // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
+      // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
     };
 
     fetchData(); // Llama a la función fetchData cuando el componente se monta
