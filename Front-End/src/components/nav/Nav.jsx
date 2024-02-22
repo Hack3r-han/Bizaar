@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Addbutton from '../button/Button-add/add-button';
 import { Link } from 'react-router-dom';
+// import  Logo  from '../../assets/img/Logo.png';
 
 const StyledNav = styled.nav`
   background-color: #393939;
@@ -34,7 +35,7 @@ const Nav = () => {
   return (
     <StyledNav>
       <StyleLink to="/">
-        <Logo src="Front-End/src/assets/img/Logo.png" alt="Logo de Bizzar" /> {/* Reemplaza 'ruta_del_logo.png' con la ruta real de tu logo */}
+        <Logo src="../../assets/img/Logo.png" alt="Logo de Bizzar" /> {/* Reemplaza 'ruta_del_logo.png' con la ruta real de tu logo */}
       </StyleLink>
       <Addbutton />
     </StyledNav>
