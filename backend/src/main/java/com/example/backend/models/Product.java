@@ -25,6 +25,8 @@ public class Product {
 
     private float price;
 
+    private String status;
+
     private String image;
 
     
@@ -70,5 +72,14 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 
 }
