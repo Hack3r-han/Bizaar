@@ -1,3 +1,18 @@
+# HACKATHON MARKETPLACE PROJECT
+
+## Indice
+
+- [Descripción de proyecto](#descripción-del-proyecto-marketplace-bizarre)
+- [Metodología de trabajo](#metología-de-trabajo)
+- [Desarrollo de Identidad Visual](#metología-de-trabajo)
+- [Repositorio en Github](#repositorio-en-github)
+- [Instalación](#instalación)
+
+
+
+
+
+
 ## Descripción del Proyecto: Marketplace BIZARRE
 
 El Marketplace BIZARRE es una plataforma de compras en línea que ofrece una amplia variedad de productos únicos y extravagantes. Desde curiosidades inusuales hasta gadgets extraordinarios, BIZARRE es el destino perfecto para aquellos que buscan artículos que desafíen lo convencional y estimulen la imaginación.
