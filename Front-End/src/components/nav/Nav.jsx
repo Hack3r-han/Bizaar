@@ -47,11 +47,6 @@ const AddProductButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-left: 20px;`
-;
-const NavButtons = styled.div`
-display: flex;
-justify-content: flex-end;
-align-items: center;`
 
 const Nav = () => {
 
@@ -60,14 +55,10 @@ const Nav = () => {
       <StyleLink to="/">
       <Logo1 src={Logo} alt="Logo de Bizzar" />
       </StyleLink>
-      <NavButtons>
       <StyleLink to="/NewItem">
       <AddProductButton onClick={() => console.log('Subir un producto')}>Subir un producto</AddProductButton>
       </StyleLink>
-      <StyleLink to="/Edit/:id">
-      <AddProductButton onClick={() => console.log('Editar un producto')}>Editar un producto</AddProductButton>
-      </StyleLink>
-      </NavButtons>
+    
       
     </StyledNav>
   );

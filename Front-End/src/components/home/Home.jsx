@@ -58,7 +58,7 @@ const ProductGrid = styled.div`
   grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
   gap: 20px; /* Espacio entre los productos */
   padding: 20px; /* Añadido espacio interno */
-  max-width: 1200px; /* Ancho máximo del contenedor */
+  max-width: 80vw; /* Ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
   justify-content: center; /* Centra los elementos en el contenedor */
 `;
@@ -86,12 +86,13 @@ const ProductPrice = styled.p``;
 const ProductStatus = styled.p``;
 
 const BuyButton = styled.button`
-  background-color: #007bff;
+  background-color: #398183;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 12px 16px;
   cursor: pointer;
   border-radius: 10px;
+  margin: 2px;
 `;
 
 const Home = () => {
@@ -122,7 +123,8 @@ const Home = () => {
             <ProductName>{Product.name}</ProductName>
             <ProductPrice>{Product.price}€</ProductPrice>
             <ProductStatus>{Product.status}</ProductStatus>
-            <BuyButton onClick={() => navigate(`/Buy/${Product.id}`)}>Comprar</BuyButton>
+            <BuyButton onClick={() => navigate(`/Card/${Product.id}`)}>Comprar</BuyButton>
+            <BuyButton onClick={() => navigate(`/Edit/${Product.id}`)}>Editar</BuyButton>
           </ProductFrame>
         ))}
       </ProductGrid>
