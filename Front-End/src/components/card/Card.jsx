@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import {React, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams, Link } from 'react-router-dom';
 import { getOneProduct} from '../../services/service';  // Cambiado "service" por "services/service" donde tenemos los métodos de la API
@@ -90,7 +91,7 @@ const Card = () => {  // Cambiado "props" por "id" para que coincida con el nomb
     
       if (!Product) {  //Si no hay bicicleta, devolvemos un mensaje de error
         return <div style={{height: "80vh", fontFamily: "Jost", fontSize: "2em", color: "red", display: "flex", justifyContent: "center", alignItems: "center"}}>No se encontró la bicicleta</div>;
-      }; //Si hay bicicleta, devolvemos la información de la bicicleta
+      } //Si hay bicicleta, devolvemos la información de la bicicleta
 
     return ( //Usamos el componente CardContainer para mostrar la información de la bicicleta
         <CardContainer> 

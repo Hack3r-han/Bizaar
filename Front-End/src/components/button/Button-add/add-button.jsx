@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";  // Importa el hook useNavigate
 import styled from "styled-components";  // Importa styled-components
  

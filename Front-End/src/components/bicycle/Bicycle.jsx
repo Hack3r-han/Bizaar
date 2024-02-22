@@ -1,12 +1,10 @@
-import React from 'react';
-
 
 const ReadBicycles = () => {
   const [bicycles, setBicycles] = useState([]); // Inicializa el estado con un array vacío
 
   useEffect(() => { // Utiliza el hook useEffect para realizar una solicitud GET al montar el componente
     const fetchData = async () => { // Define una función asincrónica llamada fetchData
-      const response = await fetch('db.json'); // Realiza la solicitud GET al archivo db.json
+      const response = await fetch('http://localhost:8080/api/v1/products'); // Realiza la solicitud GET al archivo db.json
       const data = await response.json(); // Convierte la respuesta en formato JSON
       setBicycles(data.bicycles); // Actualiza el estado con los datos obtenidos
     };
