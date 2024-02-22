@@ -21,7 +21,7 @@ conformado por:
 
 ## Desarrollo de Identidad Visual:
 [Entra en nuestro FIGMA](https://www.figma.com/file/vzOd9FxjpRxE3929baLXjh/Bizarre_Equipo11(Bazaar)?type=design&node-id=0-1&mode=design&t=VGAkYqzr4iWJMTml-0)
-<a href="https://ibb.co/r6tF4rs"><img src="https://i.ibb.co/wWLBMms/Captura-de-pantalla-226.png" alt="Captura-de-pantalla-226" border="0"></a>
+<a href="https://ibb.co/NTzFjTf"><img src="https://i.ibb.co/HhQKzhR/Captura-de-pantalla-228.png" alt="Captura-de-pantalla-228" border="0"></a>
 
 ## Repositorio en Github:
 
@@ -30,5 +30,5 @@ conformado por:
 ## Instalación:
 
 Entra en el repositorio, asegurate de clonarlo en tu carpeta de preferencias. 
-Al abrir tu Editor de codigo de fuente, ejecuta en tu terminal el comando 'npm intall'.
+Al abrir tu Editor de codigo de fuente, ejecuta en tu terminal el comando 'npm install'.
 
