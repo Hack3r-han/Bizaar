@@ -104,6 +104,10 @@ body {
     margin-top: 1%;
   }
   
+  .textarea{
+    height: 10rem;
+    width: 20rem
+  }
   
 
 `;
@@ -175,7 +179,8 @@ const Edit = () => { //Edit es un componente funcional
             </div>
         </div>
         <div>
-          <input type="textarea" />
+          <label htmlFor="">Descripción</label>
+          <input className='textarea' type="textarea" />
         </div>
         <div>
             <label htmlFor="imageUpload">Img URL</label>
