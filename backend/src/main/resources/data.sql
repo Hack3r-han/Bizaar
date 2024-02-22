@@ -7,3 +7,11 @@ INSERT INTO products(id_product, name, price, description, image) VALUES (defaul
 INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'Copa de vino incomoda' , 200, 'Copa especialmente incomoda, que permite oler mejor tu vino al tomarlo. Difícil de lavar. En muy buen estado.', '');
 
 INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'Toasty Winter Hat' , 125, ' Gorra comestible, aunque un poco dura. Incluye caja original.', '');
+
+INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'Caja No Fuerte' , 55 , 'Con clave de seguridad. Esquinas con algunos detalles y rotos. Funciona perfectamente. .', '');
+
+INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'GripBrook Pro' , 67 , 'Soporte original para Macbook Air y Pro, con manos delicadas y Grip poderoso. Incluye versión con uñas pintadas.  .', '');
+
+INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'Fatience Fork' , 78 , 'Edición limitada de la Spatience Spoon. Artículo especial para hacer todas tus comidas una experiencia muy frustrante.   .', '');
+
+INSERT INTO products(id_product, name, price, description, image) VALUES (default, 'Keybaffle' , 19 , 'Llave especial para tardar mucho tiempo intentando salir o entrar. No incluye copia extra. En buen estado.  .', '');
