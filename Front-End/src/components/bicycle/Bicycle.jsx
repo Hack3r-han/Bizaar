@@ -8,7 +8,7 @@ const ReadProducts = () => {
     const fetchData = async () => { // Define una función asincrónica llamada fetchData
       const response = await fetch('db.json'); // Realiza la solicitud GET al archivo db.json
       const data = await response.json(); // Convierte la respuesta en formato JSON
-      setBicycles(data.products); // Actualiza el estado con los datos obtenidos
+      setproducts(data.products); // Actualiza el estado con los datos obtenidos
     };
 
     fetchData(); // Llama a la función fetchData cuando el componente se monta
