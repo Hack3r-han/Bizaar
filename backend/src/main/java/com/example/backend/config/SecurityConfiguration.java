@@ -37,6 +37,9 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/products").permitAll()
+                        .requestMatchers(HttpMethod.POST, endpoint + "/products").permitAll()
+                        .requestMatchers(HttpMethod.PUT, endpoint + "/products").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, endpoint + "/products").permitAll()
                         .requestMatchers(HttpMethod.POST, endpoint + "/images").permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/images/**").permitAll()
                         .anyRequest().authenticated())
