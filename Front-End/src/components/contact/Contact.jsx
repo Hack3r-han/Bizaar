@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom'
 import styled from 'styled-components';
-import { addProduct } from '../../services/service';
+import { Link } from 'react-router-dom'
 
 
 const StyledNewItem = styled.div`
@@ -131,7 +130,7 @@ body {
 }
 `;
 
-const NewItem = () => {  // Añade el hook useNavigate a la importación de react-router-dom y declara una constante navigate que almacena el hook useNavigate
+const Contact = () => {  // Añade el hook useNavigate a la importación de react-router-dom y declara una constante navigate que almacena el hook useNavigate
 
     const { register, formState: { errors }, handleSubmit, reset} = useForm(); // Desestructura los métodos register, errors y handleSubmit del hook useForm
     const onSubmit = async (data) => {  // Crea una función asíncrona onSubmit que recibe un parámetro data y hace una petición a la API con el método addBicycle
@@ -151,51 +150,33 @@ const NewItem = () => {  // Añade el hook useNavigate a la importación de reac
     return (
         <StyledNewItem>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="form-title">Vende tu producto</h2>
+        <h2 className="form-title">Contacta con el vendedor</h2>
             <div>
-                <input className='model' type="text" placeholder="Titulo de tu producto, Ej: Cuadro"{...register('name', {
+                <input className='model' type="text" placeholder="Tu nombre"{...register('name', {
                     required: true,
                 })}/>
-                {errors.model?.type === 'required' && <p className="error-message">El campo modelo es requerido</p>}
+                {errors.model?.type === 'required' && <p className="error-message">El campo nombre es requerido</p>}
             </div>
             <div>
-                <input className='speeding' type="text" placeholder="Precio"{...register('price', {
+                <input className='speeding' type="text" placeholder="Email"{...register('price', {
                     pattern: /^[0-9]{1,3}$/,
                     required: true,
                 })}/>
                 {errors.speeds?.type === 'pattern' && <p className="error-message">La velocidad debe ser un valor numérico</p>}
                 {errors.speeds?.type === 'required' && <p className="error-message">El campo velocidades es requerido</p>}
             </div>
-            <div className='cuadred'>
-                <div className='frame'>
-                    <label>Estado:</label>
-                    <select {...register('status')}>
-                        <option value="Nuevo">Nuevo</option>
-                        <option value="Usado">Usado</option>
-                        <option value="Sin usar">Sin usar</option>
-                        <option value="Deteriorado">Deteriorado</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <input placeholder="Url de tu imagen" className="bicyclesimg" type="text" {...register('image', {
-                pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
-                required:true,
-                })}/>
-                {errors.image?.type === 'pattern' && <p className="error-message">El formato de la url de la imagen es incorrecto</p>}
-                {errors.image?.type === 'required' && <p className="error-message">El campo url de la imagen es requerido</p>}
-            </div>
-            <label>Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" cols="50" {...register('description')}></textarea>
+
+            <textarea placeholder="Observaciones..." id="descripcion" name="descripcion" rows="4" cols="50" {...register('description')}></textarea>
+            
             <div className="buttons-container">
-             <button  className="btn" type="submit" value="Añadir">Añadir</button>
              <Link to="/">
-             <button className="btn">Cancelar</button>
+             <button  className="btn" type="submit" value="Añadir">Enviar</button>
              </Link>
              </div>
+
        </form>
         </StyledNewItem>
     );
 }
            
-export default NewItem; // Exporta el componente NewItem para poder utilizarlo en otros archivo
+export default Contact; // Exporta el componente NewItem para poder utilizarlo en otros archivo
