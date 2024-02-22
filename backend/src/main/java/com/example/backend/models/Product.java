@@ -23,7 +23,7 @@ public class Product {
 
     private String description;
 
-    private int price;
+    private float price;
 
     private String image;
 
@@ -39,11 +39,11 @@ public class Product {
         this.id = id;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
