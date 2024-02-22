@@ -31,7 +31,26 @@ public class ProductService {
         return product;
     }
 
-    public Product saveProduct(Product product){
+    public Product save(Product product){
         return repository.save(product);
     }
-}
+
+    public Product updateProduct(Long id, Product productDetails) {
+        Product product = repository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found with id " + id));
+    
+        product.setName(productDetails.getName());
+        product.setDescription(productDetails.getDescription());
+        product.setPrice(productDetails.getPrice());
+        product.setImage(productDetails.getImage());
+    
+        return repository.save(product);
+    }
+    
+    public void deleteProduct(Long id) {
+        if (!repository.existsById(id)) {
+            throw new ProductNotFoundException("Product not found with id " + id);
+        }
+        repository.deleteById(id);
+    }
+}    
