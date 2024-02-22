@@ -79,21 +79,21 @@ const CardContainer = styled.div`
 
 const Card = () => {  // Cambiado "props" por "id" para que coincida con el nombre que le damos en el archivo App.jsx
     const { id } = useParams();  //UseParams es un hook que nos permite acceder a los parámetros de la URL
-    const [Product, setProduct] = useState();  //Usamos el hook useState para guardar el estado de la bicicleta
+    const [Product, setProduct] = useState();  //Usamos el hook useState para guardar el estado de la producto
 
     useEffect(() => {  //Usamos el hook useEffect para hacer la petición a la API
         const fetchProductDetails = async () => {           //fetchProductDetails es una función asíncrona que nos permite hacer la petición a la API
-            const detailedProduct = await getOneProduct(id);  //Usamos el método getOneProduct de la API para obtener los detalles de la bicicleta
-            setProduct(detailedProduct); //Usamos el método setProduct para guardar los detalles de la bicicleta en el estado
+            const detailedProduct = await getOneProduct(id);  //Usamos el método getOneProduct de la API para obtener los detalles de la producto
+            setProduct(detailedProduct); //Usamos el método setProduct para guardar los detalles de la producto en el estado
         };
         fetchProductDetails();          //Llamamos a la función fetchProductDetails
     }, [id]);   //Le pasamos el id como dependencia para que se ejecute cada vez que cambie el id
     
-      if (!Product) {  //Si no hay bicicleta, devolvemos un mensaje de error
-        return <div style={{height: "80vh", fontFamily: "Jost", fontSize: "2em", color: "red", display: "flex", justifyContent: "center", alignItems: "center"}}>No se encontró la bicicleta</div>;
-      } //Si hay bicicleta, devolvemos la información de la bicicleta
+      if (!Product) {  //Si no hay producto, devolvemos un mensaje de error
+        return <div style={{height: "80vh", fontFamily: "Jost", fontSize: "2em", color: "red", display: "flex", justifyContent: "center", alignItems: "center"}}>No se encontró el producto</div>;
+      } //Si hay producto, devolvemos la información de el producto
 
-    return ( //Usamos el componente CardContainer para mostrar la información de la bicicleta
+    return ( //Usamos el componente CardContainer para mostrar la información de la producto
         <CardContainer> 
         <img src={Product.image} alt={Product.model} />
         <section className="container-properties">

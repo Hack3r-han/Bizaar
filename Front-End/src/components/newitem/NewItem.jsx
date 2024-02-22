@@ -139,7 +139,7 @@ const NewItem = () => {  // Añade el hook useNavigate a la importación de reac
 
         if (success) {  // Si success es true
             // Mostrar mensaje de éxito
-            alert('¡La bicicleta fue añadida correctamente!');
+            alert('¡El producto fue añadido correctamente!');
             // Reiniciar el formulario
             reset();
         } else {
@@ -156,15 +156,15 @@ const NewItem = () => {  // Añade el hook useNavigate a la importación de reac
                 <input className='model' type="text" placeholder="Titulo de tu producto, Ej: Cuadro"{...register('name', {
                     required: true,
                 })}/>
-                {errors.model?.type === 'required' && <p className="error-message">El campo modelo es requerido</p>}
+                {errors.model?.type === 'required' && <p className="error-message">El campo producto es requerido</p>}
             </div>
             <div>
                 <input className='speeding' type="text" placeholder="Precio"{...register('price', {
                     pattern: /^[0-9]{1,3}$/,
                     required: true,
                 })}/>
-                {errors.speeds?.type === 'pattern' && <p className="error-message">La velocidad debe ser un valor numérico</p>}
-                {errors.speeds?.type === 'required' && <p className="error-message">El campo velocidades es requerido</p>}
+                {errors.speeds?.type === 'pattern' && <p className="error-message">Le precio debe ser un valor numérico</p>}
+                {errors.speeds?.type === 'required' && <p className="error-message">El campo precios es requerido</p>}
             </div>
             <div className='cuadred'>
                 <div className='frame'>

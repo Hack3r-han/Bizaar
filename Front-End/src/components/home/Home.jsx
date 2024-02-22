@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import gifImage from '../../assets/img/banner2.gif'; // Importa la ruta de tu archivo de gif
+import gifImage from '../../assets/img/NootBanner.gif'; // Importa la ruta de tu archivo de gif
 import { useNavigate } from "react-router-dom";
 import { getProducts } from '../../services/service';
 

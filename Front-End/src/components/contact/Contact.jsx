@@ -138,7 +138,7 @@ const Contact = () => {  // Añade el hook useNavigate a la importación de reac
 
         if (success) {  // Si success es true
             // Mostrar mensaje de éxito
-            alert('¡La bicicleta fue añadida correctamente!');
+            alert('¡El producto fue añadido correctamente!');
             // Reiniciar el formulario
             reset();
         } else {

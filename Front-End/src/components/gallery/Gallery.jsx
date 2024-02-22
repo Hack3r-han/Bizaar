@@ -38,8 +38,8 @@ const Gallery = () => { // Cambiado "props" por "id" para que coincida con el no
     <>
       {/* Cambiado "Gallery" por "GalleryContainer" */}
       <GalleryContainer className='gallerygrid'>
-        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo de una chica apoyada sobre una bicicleta azul"/>
-        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo de una chica apoyada sobre una bicicleta azul"/>
+        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo"/>
+        <img src={Gallery1} className="galleryimg" alt="Imagen de fondo "/>
       </GalleryContainer>
     </>
   );

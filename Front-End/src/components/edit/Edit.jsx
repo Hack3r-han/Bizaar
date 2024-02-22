@@ -119,11 +119,12 @@ const Edit = () => { //Edit es un componente funcional
       const ProductData = await getOneProduct(id); //ProductData es una constante que almacena el resultado de la petición a la API
       setProductData(ProductData); //Usamos el método setProductData para guardar los detalles de la bicicleta en el estado
 
-      setValue('model', ProductData.model) // Utiliza el método setValue para actualizar el valor del campo model con el valor de ProductData.model
-      setValue('speeds', ProductData.speeds) // Utiliza el método setValue para actualizar el valor del campo speeds con el valor de ProductData.speeds
-      setValue('frame', ProductData.frame) // Utiliza el método setValue para actualizar el valor del campo frame con el valor de ProductData.frame
-      setValue('electric', ProductData.electric) // Utiliza el método setValue para actualizar el valor del campo electric con el valor de ProductData.electric
-      setValue('image', ProductData.image) // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
+      setValue('name', ProductData.name) // Utiliza el método setValue para actualizar el valor del campo model con el valor de ProductData.model
+      setValue('price', ProductData.price) // Utiliza el método setValue para actualizar el valor del campo speeds con el valor de ProductData.speeds
+      setValue('status', ProductData.status) // Utiliza el método setValue para actualizar el valor del campo frame con el valor de ProductData.frame
+      setValue('description', ProductData.description) // Utiliza el método setValue para actualizar el valor del campo electric con el valor de ProductData.electric
+      setValue('image', ProductData.image)
+      setValue('id', ProductData.id) // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
     };
 
     fetchData(); // Llama a la función fetchData cuando el componente se monta
@@ -147,42 +148,39 @@ const Edit = () => { //Edit es un componente funcional
     <StyledEdit>
     <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-            <label>Modelo</label>
-            <input className='model' type="text" {...register('model', {
+            <label>Nombre</label>
+            <input className='name' type="text" {...register('name', {
                 required: true,
             })}/>
-            {errors.model?.type === 'required' && <p className="error-message">El campo modelo es requerido</p>} 
+            {errors.name?.type === 'required' && <p className="error-message">El campo nombre es requerido</p>} 
         </div>
         <div>
-            <label>Velocidades</label>
-            <input className='speeding' type="text" {...register('speeds', {
+            <label>Precio</label>
+            <input className='price' type="text" {...register('price', {
                 pattern: /^[0-9]{1,3}$/,
                 required: true,
             })}/>
-            {errors.speeds?.type === 'pattern' && <p className="error-message">La velocidad debe ser un valor numérico</p>}
-            {errors.speeds?.type === 'required' && <p className="error-message">El campo velocidades es requerido</p>}
+            {errors.price?.type === 'pattern' && <p className="error-message">El precio debe ser un valor numérico</p>}
+            {errors.price?.type === 'required' && <p className="error-message">El campo precio es requerido</p>}
         </div>
         <div className='cuadred'>
             <div className='frame'>
-                <label>Cuadro</label>
-                <select {...register('frame')}>
-                    <option value="Aluminio">Aluminio</option>
-                    <option value="Acero">Acero</option>
-                    <option value="Plástico">Plástico</option>
-                    <option value="Carbono">Carbono</option>
-                    <option value="Otros">Otros</option>
+                <label>Estado</label>
+                <select {...register('status')}>
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Sin Usar">Sin Usar</option>
+                    <option value="Usado">Usado</option>
+                    <option value="Deteriorado">Deteriorado</option>
                 </select>
             </div>
-            <div className='electric'>
-                <label>Eléctrica</label>
-                <input className="checkbox-css" type="checkbox" {...register('electric')} />
-            </div>
+        </div>
+        <div>
+          <input type="textarea" />
         </div>
         <div>
             <label htmlFor="imageUpload">Img URL</label>
             <input className="Productsimg" type="text" {...register('image', {
-            pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
-            required:true,
+            pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
             })}/>
             {errors.image?.type === 'pattern' && <p className="error-message">El formato de la url de la imagen es incorrecto</p>}
             {errors.image?.type === 'required' && <p className="error-message">El campo url de la imagen es requerido</p>}

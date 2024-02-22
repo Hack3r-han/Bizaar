@@ -40,13 +40,18 @@ const Logo1 = styled.img`
 // ;
 
 const AddProductButton = styled.button`
-  background-color: #007bff;
+  background-color: #398183;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   border-radius: 5px;
-  cursor: pointer;`
+  cursor: pointer;
+  margin-left: 20px;`
 ;
+const NavButtons = styled.div`
+display: flex;
+justify-content: flex-end;
+align-items: center;`
 
 const Nav = () => {
 
@@ -55,7 +60,15 @@ const Nav = () => {
       <StyleLink to="/">
       <Logo1 src={Logo} alt="Logo de Bizzar" />
       </StyleLink>
+      <NavButtons>
+      <StyleLink to="/NewItem">
       <AddProductButton onClick={() => console.log('Subir un producto')}>Subir un producto</AddProductButton>
+      </StyleLink>
+      <StyleLink to="/Edit/:id">
+      <AddProductButton onClick={() => console.log('Editar un producto')}>Editar un producto</AddProductButton>
+      </StyleLink>
+      </NavButtons>
+      
     </StyledNav>
   );
 }
