@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Gallery1 from '../../assets/img/Gallery1.png';

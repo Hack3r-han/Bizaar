@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 const ReadBicycles = () => {
   const [bicycles, setBicycles] = useState([]); // Inicializa el estado con un array vacío

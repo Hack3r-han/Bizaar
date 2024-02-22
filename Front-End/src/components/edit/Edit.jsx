@@ -1,4 +1,4 @@
-import React, { useState, useEffect, wacht} from 'react';
+import { useState, useEffect, wacht} from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { updateItem, getOneProduct } from '../../services/service';

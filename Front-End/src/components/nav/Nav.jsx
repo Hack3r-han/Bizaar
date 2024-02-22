@@ -1,8 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import Addbutton from '../button/Button-add/add-button';
 import { Link } from 'react-router-dom';
-// import  Logo  from '../../assets/img/Logo.png';
+import  Logo  from '../../assets/img/Logo.png';
 
 const StyledNav = styled.nav`
   background-color: #393939;
@@ -12,32 +10,52 @@ const StyledNav = styled.nav`
   font-family: 'Jost', sans-serif;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-`;
+  justify-content: space-between;`
+;
 
-const StyleLink = styled(Link)`
+const StyleLink = styled(Link)` 
   text-decoration: none;
-  color: inherit;
-`
+  color: inherit;`
+;
 
-const Logo = styled.img`
+const Logo1 = styled.img`
+  height: 100%;
+  width: 18rem;
   margin-left: 1vw;
-  height: 100%; /* Ajusta la altura del logo según sea necesario */
+  margin-top: 10px;
   transition: 0.5s;
   &:hover {
-    filter: brightness(1.2); /* Cambia el brillo del logo al pasar el cursor */
+    filter: brightness(1.2);
     transition: 0.5s;
     transform: scale(1.1);
-  }
-`;
+  }`
+;
+
+// const SearchInput = styled.input`
+//   margin: 0 1rem;
+//   padding: 0.5rem;
+//   border: 1px solid #ccc;
+//   border-radius: 5px;
+//   width: 300px; /* Ancho ajustado de la barra de búsqueda */`
+// ;
+
+const AddProductButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;`
+;
 
 const Nav = () => {
+
   return (
     <StyledNav>
       <StyleLink to="/">
-        <Logo src="../../assets/img/Logo.png" alt="Logo de Bizzar" /> {/* Reemplaza 'ruta_del_logo.png' con la ruta real de tu logo */}
+      <Logo1 src={Logo} alt="Logo de Bizzar" />
       </StyleLink>
-      <Addbutton />
+      <AddProductButton onClick={() => console.log('Subir un producto')}>Subir un producto</AddProductButton>
     </StyledNav>
   );
 }

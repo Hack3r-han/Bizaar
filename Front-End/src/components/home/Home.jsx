@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import gifImage from '../../assets/img/cool-wallpapers-icegif-1.gif'; // Importa la ruta de tu archivo de gif
+import gifImage from '../../assets/img/banner2.gif'; // Importa la ruta de tu archivo de gif
 import { useNavigate } from "react-router-dom";
 import { getProducts } from '../../services/service';
 
@@ -25,6 +25,7 @@ const GifBackground = styled.div`
   height: 100%;
   background-image: url(${gifImage});
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
 `;
@@ -65,15 +66,19 @@ const ProductGrid = styled.div`
 const ProductFrame = styled.div`
   border: 1px solid #ccc;
   padding: 20px;
+  border-radius: 20px;
 `;
 
 const ProductImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 60%;
+  border-radius:20px;
 `;
 
 const ProductName = styled.p`
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 22px;
+  text-aling: center;
 `;
 
 const ProductPrice = styled.p``;
@@ -86,6 +91,7 @@ const BuyButton = styled.button`
   border: none;
   padding: 8px 16px;
   cursor: pointer;
+  border-radius: 10px;
 `;
 
 const Home = () => {
@@ -114,7 +120,7 @@ const Home = () => {
           <ProductFrame key={Product.id}>
             <ProductImage src={Product.image} alt={Product.name} />
             <ProductName>{Product.name}</ProductName>
-            <ProductPrice>{Product.price}</ProductPrice>
+            <ProductPrice>{Product.price}€</ProductPrice>
             <ProductStatus>{Product.status}</ProductStatus>
             <BuyButton onClick={() => navigate(`/Buy/${Product.id}`)}>Comprar</BuyButton>
           </ProductFrame>
