@@ -1,5 +1,3 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 import Copyright from '../../assets/img/Copyright.png'; // Cambiado "copy" por "Copyright" para que coincida con el nombre del archivo
@@ -39,7 +37,7 @@ const FooterContainer = styled.footer`
   .footer-container {
     width: 75%;
     display: flex;
-    justify-content: space-around;
+    column-gap: 2rem;
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
