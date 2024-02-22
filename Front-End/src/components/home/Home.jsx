@@ -1,140 +1,127 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import BackgroundHome from '../../assets/img/BackgroundHome.png';
+import styled, { keyframes } from 'styled-components';
+import gifImage from '../../assets/img/cool-wallpapers-icegif-1.gif'; // Importa la ruta de tu archivo de gif
 import { useNavigate } from "react-router-dom";
-import { getProducts, deleteProduct } from '../../services/service';
+import { getProducts } from '../../services/service';
 
 const HomeContainer = styled.div`
-
-body {
-    margin: 0;
-  }
-
-
-  .title-gallery {
-    text-align: center;
-    font-family: 'Jost', sans-serif;
-    font-size:125%;
-    text-shadow:  4px 4px 4px #D9D9D9;
-    text-transform: uppercase;
-    
-  }
-  
-
-  .background-img {
-    width: 100%;
-    height: auto;
-  }
-
-  .gallery {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-  }
-
-  .gallerygrid {
-    margin: 10px; 
-    text-align: center; 
-  }
-
-  .bicyclesimg {
-    max-width: 17vw;
-    max-height: 45vh; 
-    border: 0.5rem solid #D9D9D9;
-    cursor: pointer;
-  }
-
-  .bicyclesimg:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-
-  }
-
-  p {
-    text-align: center;
-    font-family: 'Jost', sans-serif;
-    font-size: 100%;
-    text-transform: uppercase;
-    text-decoration: bold;
-    text-shadow:  4px 4px 4px #D9D9D9;
-    padding-top:5%;
-
-  }
-
- gallery-button {
-  
-  display: flex;
-  width: 5vw;
-  justify-content: space-around;
-  
-  
- }
-
- button img {
-  width: 50%;
-  height: auto;
-  
-
- }
-
-button.edit-button, button.delete-button  {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin: 0.75rem;
-  transition: 0.5s;
-  
-
-}
-
-
-
-button.edit-button:hover, button.delete-button:hover {
-  transform: scale(1.5);
-}
-
-
+  /* Estilos para el contenedor principal */
 `;
 
-const Home = () => { // Crea un componente Home
-  const [Products, setProducts] = useState([]); // Declara una constante bicycles y una función setBicycles que almacenan un array vacío UseState, se desestructura el array en dos elementos
-  const navigate = useNavigate(); // Declara una constante navigate que almacena el hook useNavigate
+const BannerSection = styled.div`
+  /* Estilos para la sección del banner */
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Ajusta el tamaño de la sección del banner según sea necesario */
+  overflow: hidden;
+`;
 
-  useEffect(() => {  // Crea un efecto que se ejecuta al renderizar el componente
-      const fetchData = async () => {  // Crea una función fetchData que se ejecuta de manera asíncrona
-      const data = await getProducts() // Declara una constante data que almacena el resultado de la función getBicycles
-      console.log(data); // Muestra en consola el contenido de la constante data
-      setProducts(data); // Ejecuta la función setBicycles con el contenido de la constante data como argumento
+const GifBackground = styled.div`
+  /* Estilos para el fondo de gif */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${gifImage});
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+`;
+
+const SloganContainer = styled.div`
+  /* Estilos para el contenedor del slogan */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Cambia el color del texto a blanco */
+`;
+
+const pulseAnimation = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
+const Slogan = styled.h2`
+  /* Estilos para el slogan */
+  font-family: 'Jost', sans-serif;
+  font-size: 48px; /* Tamaño del texto */
+  animation: ${pulseAnimation} 2s infinite; /* Animación de pulsación */
+`;
+
+const ProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+  gap: 20px; /* Espacio entre los productos */
+  padding: 20px; /* Añadido espacio interno */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  justify-content: center; /* Centra los elementos en el contenedor */
+`;
+
+const ProductFrame = styled.div`
+  border: 1px solid #ccc;
+  padding: 20px;
+`;
+
+const ProductImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const ProductName = styled.p`
+  font-weight: bold;
+`;
+
+const ProductPrice = styled.p``;
+
+const ProductStatus = styled.p``;
+
+const BuyButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+`;
+
+const Home = () => {
+  const [Products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProducts();
+      console.log(data);
+      setProducts(data);
     }
-    fetchData(); // Ejecuta la función fetchData
-    }
+    fetchData();
+  }, []);
 
-   , []);
-
-
-  return ( // Retorna un fragmento con el contenido del componente
-    <>
+  return (
     <HomeContainer>
-        <img className="background-img"src={BackgroundHome} alt="Imagen de fondo de una chica apoyada sobre una bicicleta azul" />
-        <h2 className="title-gallery">Productos bizzar</h2>
-        <div className='gallery'>
-          {Products.map((Product) => (
-            <div className='gallerygrid' key={Product.id}>
-              <img  onClick={() => navigate(`/card/${Product.id}`)} className="bicyclesimg" src={Product.image} alt={Product.model} />
-              <p>{Product.model}</p>
-              <div className="gallery-button" >
-              <button className="edit-button" onClick={() => navigate(`/Edit/${Product.id}`)}>
-                <img src="src\assets\img\Edit.png" alt="" />
-              </button>
-              <button className="delete-button" onClick={() => {deleteProduct(`${Product.id}`); navigate(0)}}>
-                <img src="src\assets\img\Delete.png"></img></button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </HomeContainer>
-    </>
+      <BannerSection>
+        <GifBackground />
+        <SloganContainer>
+          <Slogan>YOUR BAZAAR TO BUY ALL THINGS BIZARRE</Slogan>
+        </SloganContainer>
+      </BannerSection>
+      <ProductGrid>
+        {Products.map((Product) => (
+          <ProductFrame key={Product.id}>
+            <ProductImage src={Product.image} alt={Product.name} />
+            <ProductName>{Product.name}</ProductName>
+            <ProductPrice>{Product.price}</ProductPrice>
+            <ProductStatus>{Product.status}</ProductStatus>
+            <BuyButton onClick={() => navigate(`/Buy/${Product.id}`)}>Comprar</BuyButton>
+          </ProductFrame>
+        ))}
+      </ProductGrid>
+    </HomeContainer>
   );
 }
-//useparamt luego peticion get de id que tngo en la url 
+
 export default Home;
