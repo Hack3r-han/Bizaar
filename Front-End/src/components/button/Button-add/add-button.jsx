@@ -52,7 +52,7 @@ const Addbutton = () => {   // Crea un componente Addbutton
 
     return (  // Devuelve el componente AddButton con el evento onClick que redirige a la ruta /NewItem// Añade la clase "add-button" al componente AddButton
         <AddButton className="add-button" onClick={() => navigate("/NewItem")}>             
-                <p className="add-bicycle">Añadir bicicleta</p>
+                <p className="add-bicycle">Añadir producto</p>
         </AddButton>
         );
 }

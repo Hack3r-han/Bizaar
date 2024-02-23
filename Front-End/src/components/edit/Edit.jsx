@@ -104,6 +104,10 @@ body {
     margin-top: 1%;
   }
   
+  .textarea{
+    height: 10rem;
+    width: 20rem
+  }
   
 
 `;
@@ -124,7 +128,7 @@ const Edit = () => { //Edit es un componente funcional
       setValue('status', ProductData.status) // Utiliza el método setValue para actualizar el valor del campo frame con el valor de ProductData.frame
       setValue('description', ProductData.description) // Utiliza el método setValue para actualizar el valor del campo electric con el valor de ProductData.electric
       setValue('image', ProductData.image)
-      setValue('id', ProductData.id) // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
+      // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
     };
 
     fetchData(); // Llama a la función fetchData cuando el componente se monta
@@ -171,17 +175,18 @@ const Edit = () => { //Edit es un componente funcional
                     <option value="Sin Usar">Sin Usar</option>
                     <option value="Usado">Usado</option>
                     <option value="Deteriorado">Deteriorado</option>
-                </select>
-            </div>
+                </select> 
+            </div> 
         </div>
-        <div>
-          <input type="textarea" />
+        <div> 
+          <label htmlFor="">Descripción</label>
+          <input className='textarea' type="textarea" />
         </div>
         <div>
             <label htmlFor="imageUpload">Img URL</label>
             <input className="Productsimg" type="text" {...register('image', {
             pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
-            })}/>
+            })}/> 
             {errors.image?.type === 'pattern' && <p className="error-message">El formato de la url de la imagen es incorrecto</p>}
             {errors.image?.type === 'required' && <p className="error-message">El campo url de la imagen es requerido</p>}
         </div>
