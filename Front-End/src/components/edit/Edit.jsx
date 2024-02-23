@@ -175,10 +175,10 @@ const Edit = () => { //Edit es un componente funcional
                     <option value="Sin Usar">Sin Usar</option>
                     <option value="Usado">Usado</option>
                     <option value="Deteriorado">Deteriorado</option>
-                </select>
-            </div>
+                </select> 
+            </div> 
         </div>
-        <div>
+        <div> 
           <label htmlFor="">Descripción</label>
           <input className='textarea' type="textarea" />
         </div>
@@ -186,7 +186,7 @@ const Edit = () => { //Edit es un componente funcional
             <label htmlFor="imageUpload">Img URL</label>
             <input className="Productsimg" type="text" {...register('image', {
             pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
-            })}/>
+            })}/> 
             {errors.image?.type === 'pattern' && <p className="error-message">El formato de la url de la imagen es incorrecto</p>}
             {errors.image?.type === 'required' && <p className="error-message">El campo url de la imagen es requerido</p>}
         </div>
