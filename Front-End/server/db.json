@@ -1,73 +1,28 @@
-{
+{ 
   "Products": [
     {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
-    },
-
-    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "2"
-    },
-
-    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
+      "id_product": "1",
+      "name": "WC Fish n Flush",
+      "price": 99.90,
+      "status": "nuevo",
+      "description": "Edición limitada, y en perfecto estado. No incluye los peces",
+      "image": "https://assets.newatlas.com/dims4/default/32dc20a/2147483647/strip/true/crop/530x647+0+0/resize/530x647!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2F6076_29080652716.jpg"
     },
     {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
-    },
-
-    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
+      "id_product": "2",
+      "name": "Sandía de cubo",
+      "price": 29.99,
+      "status": "nuevo",
+      "description": "Traídas directamente de la tierra del sol naciente, firmada por Tomoyoki Ono. No es comestible. Incluyo contenedor de metal y cristal para hacer tus propias sandías.",
+      "image": "https://cdn.thisiswhyimbroke.com/images/cubed-watermelon-mold-640x533.jpg"
     },
     {
-      "name": "bmx",
+      "id_product": "3",
+      "name": "Copa de vino incomoda",
       "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
-    },
-
-    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
-    },
-
-    {
-      "name": "bmx",
-      "price": 200,
-      "status": "Aluminio",
-      "image": "https://res.cloudinary.com/dgrh4vkj0/image/upload/v1707744089/Gallery_9_txtg0i.png",
-      "description": "sfgfiugf",
-      "id": "1"
+      "status": "nuevo",
+      "description": "Copa especialmente incomoda, que permite oler mejor tu vino al tomarlo. Difícil de lavar. En muy buen estado.",
+      "image": "https://www.yankodesign.com/images/design_news/2020/02/auto-draft/uncomfortable_designs-ds-yankodesign13.jpg"
     }
   ]
 }

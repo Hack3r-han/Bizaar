@@ -1,8 +1,8 @@
-import { useState, useEffect, wacht} from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { updateItem, getOneProduct } from '../../services/service';
-import { useParams } from 'react-router'; // Importa el hook useParams
+import { useParams } from 'react-router';
 
 const StyledEdit = styled.div`
 height: 80vh;
@@ -112,43 +112,43 @@ body {
 
 `;
 
-const Edit = () => { //Edit es un componente funcional
-  const { id } = useParams(); // Obtiene el parámetro id de la URL UseParams es un hook que nos permite acceder a los parámetros de la URL
-  const { register, formState: { errors }, handleSubmit, reset, setValue } = useForm(); // Utiliza el hook useForm para manejar el formulario
-  const [loading, setLoading] = useState(false); // Utiliza el hook useState para guardar el estado de loading
-  const [ProductData, setProductData] = useState();// Utiliza el hook useState para guardar el estado de ProductData
+const Edit = () => { 
+  const { id } = useParams(); 
+  const { register, formState: { errors }, handleSubmit, reset, setValue } = useForm(); 
+  const [loading, setLoading] = useState(false); 
+  const [ProductData, setProductData] = useState();
 
-  useEffect(() => { // Utiliza el hook useEffect para hacer la petición a la API
-    const fetchData = async () => { //fetchData es una función asíncrona que nos permite hacer la petición a la API
-      const ProductData = await getOneProduct(id); //ProductData es una constante que almacena el resultado de la petición a la API
-      setProductData(ProductData); //Usamos el método setProductData para guardar los detalles de la bicicleta en el estado
+  useEffect(() => { 
+    const fetchData = async () => { 
+      const ProductData = await getOneProduct(id);
+      setProductData(ProductData); 
 
-      setValue('name', ProductData.name) // Utiliza el método setValue para actualizar el valor del campo model con el valor de ProductData.model
-      setValue('price', ProductData.price) // Utiliza el método setValue para actualizar el valor del campo speeds con el valor de ProductData.speeds
-      setValue('status', ProductData.status) // Utiliza el método setValue para actualizar el valor del campo frame con el valor de ProductData.frame
-      setValue('description', ProductData.description) // Utiliza el método setValue para actualizar el valor del campo electric con el valor de ProductData.electric
+      setValue('name', ProductData.name) 
+      setValue('price', ProductData.price) 
+      setValue('status', ProductData.status) 
+      setValue('description', ProductData.description) 
       setValue('image', ProductData.image)
-      // Utiliza el método setValue para actualizar el valor del campo image con el valor de ProductData.image
+      
     };
 
-    fetchData(); // Llama a la función fetchData cuando el componente se monta
-  }, [id, setValue]) // Le pasa el id y el método setValue como dependencias para que se ejecute cada vez que cambien
+    fetchData(); 
+  }, [id, setValue]) 
 
-  const onSubmit = async (data) => { // Define una función asincrónica llamada onSubmit que recibe los datos del formulario
-    try { // Utiliza un bloque try...catch para manejar errores
-      setLoading(true); // Actualiza el estado de loading a true
-      await updateItem(id, data); // Utiliza el id capturado de la URL
-      alert('¡Los datos del elemento han sido actualizados correctamente!');// Muestra un mensaje de éxito
-      reset();// Reinicia el formulario
-    } catch (error) {// Maneja el error
-      console.error('Error al actualizar el elemento:', error);// Muestra un mensaje de error en la consola
-      alert('Error al actualizar el elemento. Por favor, intenta nuevamente.');// Muestra un mensaje de error
+  const onSubmit = async (data) => { 
+    try { 
+      setLoading(true); 
+      await updateItem(id, data); 
+      alert('¡Los datos del elemento han sido actualizados correctamente!');
+      reset();
+    } catch (error) {
+      console.error('Error al actualizar el elemento:', error);
+      alert('Error al actualizar el elemento. Por favor, intenta nuevamente.');
     } finally { 
-      setLoading(false); // Actualiza el estado de loading a false
+      setLoading(false); 
     }
   };
         
-  return ( // Renderiza el formulario
+  return ( 
     <StyledEdit>
     <form onSubmit={handleSubmit(onSubmit)}>
         <div>

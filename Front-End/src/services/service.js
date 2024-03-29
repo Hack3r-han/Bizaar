@@ -1,72 +1,70 @@
-
-
 //Método GET
-export const getProducts = async () => {  //Declaramos una función asíncrona llamada getBicycles que nos permite hacer la petición a la API
-    try {  //Usamos try para manejar errores
-      const response = await fetch('http://localhost:8080/api/v1/products'); //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
-      const data = await response.json(); //Usamos el método json() para convertir la respuesta en un objeto JSON y lo almacenamos en la constante data 
-      return data //Retornamos la constante data que contiene los datos de las bicicletas
-    } catch (error) { //Usamos catch para manejar errores y mostramos un mensaje de error en la consola
-      console.error('Error fetching bicycles:', error); //Mostramos un mensaje de error en la consola
+export const getProducts = async () => {  
+    try {  
+      const response = await fetch('https://ebazaar-api.vercel.app/products'); //MOCK DB PARA DESPLEGAR! Para conectar con el back-end server http://localhost:8080/api/v1/products
+      const data = await response.json(); 
+      return data 
+    } catch (error) { 
+      console.error('Error', error); 
     }
   };
 //Método DELETE
-export const deleteProduct= async (id) => {  //Definimos una función asíncrona llamada deleteBicycle que recibe un parámetro id que representa el ID de la bicicleta que queremos eliminar
-    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`, { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
-      method: 'DELETE'//Especificamos que esta es una solicitud de tipo DELETE
+export const deleteProduct= async (id) => {  
+    const response = await fetch(`https://ebazaar-api.vercel.app/products/${id}`, { 
+      method: 'DELETE'
     });
 };
 
 //Método POST
-export const addProduct = async (data) => { //Definimos una función asíncrona llamada addBicycle que recibe un parámetro data que representa los datos de la bicicleta que queremos añadir
+export const addProduct = async (data) => { 
   try {
-      const response = await fetch('http://localhost:8080/api/v1/products', { //Usamos el método fetch para hacer la petición a la API y almacenamos la respuesta en la constante response
-          method: 'POST', //Especificamos que esta es una solicitud de tipo POST 
-          headers: { //Especificamos el tipo de contenido que estamos enviando en la solicitud
-              'Content-Type': 'application/json'//Especificamos que estamos enviando un objeto JSON 
+      const response = await fetch('https://ebazaar-api.vercel.app/products', { 
+          method: 'POST',
+          headers: { 
+              'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data)//Convertimos el objeto data a un objeto JSON y lo enviamos en la solicitud
+          body: JSON.stringify(data)
       });
 
-      if (response.ok) { //Verificamos si la respuesta es exitosa
+      if (response.ok) { 
           return { success: true };
-      } else { //Si la respuesta no es exitosa
-          return { success: false, error: 'Hubo un problema al añadir tu bicicleta. Por favor, intenta de nuevo más tarde.' };
+      } else { 
+          return { success: false, error: 'Hubo un problema al añadir tu producto. Por favor, intenta de nuevo más tarde.' };
       }
-  } catch (error) { //Usamos catch para manejar errores
+  } catch (error) {
       console.error('Error:', error);
-      return { success: false, error: 'Hubo un problema al añadir tu bicicleta. Por favor, intenta de nuevo más tarde.' };
+      return { success: false, error: 'Hubo un problema al añadir tu producto. Por favor, intenta de nuevo más tarde.' };
   }
 };
-//get para introducir datos en el formulario de editar
-export const getItemById = async (id) => { //Definimos una función asíncrona llamada getItemById que recibe un parámetro id que representa el ID de la bicicleta que queremos obtener
+
+export const getItemById = async (id) => { 
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`);
+    const response = await fetch(`https://ebazaar-api.vercel.app/products/${id}`);
     const data = await response.json();
     return data
   } catch (error) {
-    console.error('Error fetching bicycles:', error);
+    console.error('Error', error);
   }
 };
 //Método PUT
-export const updateItem = async (id, newData) => { //Definimos una función asíncrona llamada updateItem que recibe dos parámetros: id que representa el ID de la bicicleta que queremos actualizar y newData que representa los nuevos datos de la bicicleta
+export const updateItem = async (id, newData) => { 
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`, {
-      method: 'PUT',//Especificamos que esta es una solicitud de tipo PUT
+    const response = await fetch(`https://ebazaar-api.vercel.app/products/${id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newData)
     });
 
-    if (!response.ok) { //Verificamos si la respuesta no es exitosa
-      throw new Error('Error updatingItem'); //Lanzamos un error si la respuesta no es exitosa
+    if (!response.ok) { 
+      throw new Error('Error'); 
     }
 
-    return response.json(); //Retornamos la respuesta de la API
-  } catch (error) { //Usamos catch para manejar errores
-    console.error('Error updatingItem:', error);//Mostramos un mensaje de error en la consola
-    throw error;//Lanzamos el error
+    return response.json(); 
+  } catch (error) { 
+    console.error('Error', error);
+    throw error;
   }
 };
 
@@ -75,10 +73,10 @@ export const updateItem = async (id, newData) => { //Definimos una función así
 //Método GET
 export const getOneProduct = async (id) => {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/products/${id}`);
+    const response = await fetch(`https://ebazaar-api.vercel.app/products/${id}`);
     const data = await response.json();
     return data
   } catch (error) {
-    console.error('Error fetching bicycles:', error);
+    console.error('Error', error);
   }
 };
