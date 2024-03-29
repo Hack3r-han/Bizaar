@@ -95,7 +95,7 @@ const Card = () => {  // Cambiado "props" por "id" para que coincida con el nomb
 
     return ( //Usamos el componente CardContainer para mostrar la información de la producto
         <CardContainer> 
-        <img src={Product.image} alt={Product.model} />
+        <img src={Product.image} />
         <section className="container-properties">
             <div className="properties">
                 <p className="product-title">{Product.name}</p>

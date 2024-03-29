@@ -49,6 +49,7 @@ const pulseAnimation = keyframes`
 const Slogan = styled.h2`
   /* Estilos para el slogan */
   font-family: 'Jost', sans-serif;
+  color: #FDDA0D;
   font-size: 48px; /* Tamaño del texto */
   animation: ${pulseAnimation} 2s infinite; /* Animación de pulsación */
 `;

@@ -168,19 +168,19 @@ const Edit = () => {
             {errors.price?.type === 'required' && <p className="error-message">El campo precio es requerido</p>}
         </div>
         <div className='cuadred'>
-            <div className='frame'>
-                <label>Estado</label>
-                <select {...register('status')}>
-                    <option value="Nuevo">Nuevo</option>
-                    <option value="Sin Usar">Sin Usar</option>
-                    <option value="Usado">Usado</option>
-                    <option value="Deteriorado">Deteriorado</option>
-                </select> 
-            </div> 
+          <div className='frame'>
+           <label htmlFor="status">Estado</label>
+            <select id="status" {...register('status')}>
+              <option value="Nuevo">Nuevo</option>
+              <option value="Sin Usar">Sin Usar</option>
+              <option value="Usado">Usado</option>
+              <option value="Deteriorado">Deteriorado</option>
+            </select>
+          </div>
         </div>
-        <div> 
-          <label htmlFor="">Descripción</label>
-          <input className='textarea' type="textarea" />
+        <div>
+            <label htmlFor="description">Descripción</label>
+            <textarea id="description" className='textarea' {...register('description')} />
         </div>
         <div>
             <label htmlFor="imageUpload">Img URL</label>
